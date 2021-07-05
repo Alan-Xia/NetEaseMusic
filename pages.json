@@ -5,8 +5,12 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}
-	],
+		},
+		{
+			"path" : "pages/list/list",
+			"style" : {}
+    }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

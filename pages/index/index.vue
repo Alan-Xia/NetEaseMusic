@@ -8,13 +8,13 @@
 					<input type="text" value="" placeholder="搜索歌曲" />
 				</view>
 				<view class="index-list">
-					<view class="index-list-item">
+					<view class="index-list-item" v-for="(item,index) in topList" :key="index" @tap="handleToList">
 						<view class="index-list-img">
-							<image src="../../static/wangyiyunyinyue.png" mode=""></image>
-							<text></text>
+							<image :src="item.coverImgUrl" mode=""></image>
+							<text>{{item.updateFrequency}}</text>
 						</view>
 						<view class="index-list-text">
-							<view v-for="(item ,index) in 3" :key="index">热门音乐</view>
+							<view v-for="(it ,i) in item.tracks" :key="i">{{i+1}}.{{it.first}} - {{it.second}}</view>
 						</view>
 					</view>
 				</view>
@@ -25,11 +25,11 @@
 
 <script>
 	import MusicHeader from '@/components/musichead/musichead.vue'
-	import {rankList} from '@/request/api'
+	import request from '@/request/api'
 	export default {
 		data() {
 			return {
-				
+				topList: []
 			}
 		},
 		components: {
@@ -39,10 +39,15 @@
 			this.getTopList()
 		},
 		methods: {
-			getTopList () {
-				rankList().then(res => {
-					console.log(res)
-				})
+			async getTopList () {
+				const {data} = await request({url:'/toplist/detail'})
+				this.topList = data.list.slice(0,4)
+			},
+			handleToList () {
+				console.log(123)
+				uni.navigateTo({
+					url: '/pages/list/list'
+				});
 			}
 		}
 	}
@@ -60,5 +65,10 @@
 	.index-list-img image{ width:100%; height:100%;}
 	.index-list-img text{ position: absolute; font-size:22rpx; color:white; bottom: 15rpx; left:15rpx;}
 	.index-list-text{ flex:1; font-size:24rpx; line-height: 68rpx;}
-	.index-list-text view{}
+	.index-list-text view{
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+	}
 </style>
