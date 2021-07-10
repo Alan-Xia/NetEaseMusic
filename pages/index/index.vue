@@ -3,12 +3,12 @@
 		<MusicHeader title="网易云音乐" color="" :icon="false" iconBlack=""></MusicHeader>
 		<view class="container">
 			<scroll-view :scroll-y="true">
-				<view class="index-search" @tap="handleToSearch">
+				<view class="index-search">
 					<text class="iconfont iconsearch"></text>
 					<input type="text" value="" placeholder="搜索歌曲" />
 				</view>
 				<view class="index-list">
-					<view class="index-list-item" v-for="(item,index) in topList" :key="index" @tap="handleToList">
+					<view class="index-list-item" v-for="(item,index) in topList" :key="index" @tap="handleToList(item.id)">
 						<view class="index-list-img">
 							<image :src="item.coverImgUrl" mode=""></image>
 							<text>{{item.updateFrequency}}</text>
@@ -43,22 +43,20 @@
 				const {data} = await request({url:'/toplist/detail'})
 				this.topList = data.list.slice(0,4)
 			},
-			handleToList () {
-				console.log(123)
+			handleToList (id) {
 				uni.navigateTo({
-					url: '/pages/list/list'
+					url: '/pages/list/list?id='+id
 				});
 			}
 		}
 	}
 </script>
 
-<style>
-	/*搜索栏*/
+<style scoped>
 	.index-search{ display: flex; background:#f7f7f7; height:73rpx; margin:70rpx 30rpx 30rpx 30rpx; border-radius: 50rpx; align-items: center;}
 	.index-search text{ margin:0 27rpx;} 
 	.index-search input{ font-size:26rpx; flex:1;}
-	/*歌曲分类*/
+	
 	.index-list{ margin:0 30rpx;}
 	.index-list-item{ display: flex; margin-bottom: 35rpx;}
 	.index-list-img{ width:212rpx; height:212rpx; margin-right:20rpx; border-radius: 15rpx; overflow: hidden; position: relative;}

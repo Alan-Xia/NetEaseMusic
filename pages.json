@@ -8,13 +8,31 @@
 		},
 		{
 			"path" : "pages/list/list",
-			"style" : {}
-    }
-    ],
+			"style" : {
+				"navigationStyle": "custom"
+			}
+    },
+		{
+			"path" : "pages/detail/detail",
+			"style" :{
+				"navigationStyle": "custom"
+			}
+		}   
+   ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"condition": { // 模式匹配，仅开发阶段有效
+		"current": 0, // 当前激活的模式(list的索引)
+		"list": [
+			{
+				"name":"list", // 模式名称
+				"path":"pages/list/list", // 路由地址
+				"query":"id=19723756" // 参数
+			}
+		]
 	}
 }
