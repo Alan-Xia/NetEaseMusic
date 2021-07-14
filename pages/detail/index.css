@@ -83,7 +83,7 @@
     transform: rotate(360deg);
   }
 }
-
+/*歌词*/
 .detail-lyric {
   height: 246rpx;
   line-height: 82rpx;
@@ -104,7 +104,7 @@
 .detail-lyric-item {
   height: 82rpx;
 }
-
+/*相似歌曲*/
 .detail-like {
   margin: 0 32rpx;
 }
@@ -169,7 +169,7 @@
   font-size: 50rpx;
   color: #877764;
 }
-
+/*评论*/
 .detail-comment {
   margin: 0 32rpx;
 }
