@@ -3,7 +3,7 @@
 		<MusicHeader title="网易云音乐" color="" :icon="false" iconBlack=""></MusicHeader>
 		<view class="container">
 			<scroll-view :scroll-y="true">
-				<view class="index-search">
+				<view class="index-search" @tap="goSearch">
 					<text class="iconfont iconsearch"></text>
 					<input type="text" value="" placeholder="搜索歌曲" />
 				</view>
@@ -47,6 +47,11 @@
 				uni.navigateTo({
 					url: '/pages/list/list?id='+id
 				});
+			},
+			goSearch () {
+				uni.navigateTo({
+					url: '../search/search'
+				})
 			}
 		}
 	}

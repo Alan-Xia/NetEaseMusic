@@ -9,7 +9,8 @@
 		{
 			"path" : "pages/list/list",
 			"style" : {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"navigationBarBackgroundColor": "#000000"
 			}
     },
 		{
@@ -17,7 +18,14 @@
 			"style" : {
 				"navigationStyle": "custom"
 			}
-		}   
+		},
+		{
+			"path" : "pages/search/search",
+			"style" :                                                                                    
+			{
+				"navigationStyle": "custom"
+			}	
+		}
    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

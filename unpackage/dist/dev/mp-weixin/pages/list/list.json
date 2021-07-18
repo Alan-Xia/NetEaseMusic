@@ -1,5 +1,6 @@
 {
   "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#000000",
   "usingComponents": {
     "music-header": "/components/musichead/musichead"
   }

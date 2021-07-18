@@ -55,7 +55,11 @@
 		data() {
 			return {
 				// 榜单背景图
-				playlist : {},
+				playlist : {
+					coverImgUrl : '',
+					trackCount : '',
+					creator : ''
+				},
 				privileges: []
 			};
 		},
@@ -75,6 +79,7 @@
 				let {data} = await request({url:`/playlist/detail?id=${id}`,methods: "get"})
 				this.playlist = data.playlist
 				this.privileges = data.privileges
+				this.$store.commit("saveSongIds",this.playlist.trackIds)
 				uni.hideToast()
 			},
 			handleDetail (id) {
