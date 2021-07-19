@@ -41,13 +41,7 @@
   background: url(~@/static/needle.png);
   background-size: cover;
 }
-
-/*播放旋转图片、播放按钮*/
-.detail-play .detail-play-run {
-  animation-play-state: running;
-}
-
-.detail-play image {
+.detail-play view:nth-child(3){
   width: 380rpx;
   height: 380rpx;
   position: absolute;
@@ -56,9 +50,23 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  animation: 10s linear infinite move;
-  animation-play-state: paused;
   border-radius: 50%;
+}
+.detail-play view:nth-child(3) image {
+  width: 380rpx;
+  height: 380rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+	animation: 10s linear infinite move;
+	animation-play-state: paused;
+  border-radius: 50%;
+}
+/*播放旋转图片、播放按钮*/
+.detail-play view:nth-child(3) .detail-play-run {
+  animation-play-state: running;
 }
 
 .detail-play view:nth-child(3) text {
